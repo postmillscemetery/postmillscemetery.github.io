@@ -154,7 +154,7 @@ function plotInfo(){
             var reserved = !name && props.Grantee;
             var available = (!name && !props.Grantee) || (name ==='open' && !props.Grantee);
             var status = interred ? 'rgba(132, 172, 223,1)' : reserved ? 'rgba(176, 206, 246,1)' : available ? 'rgba(219, 232, 249,1)' : '';
-            var editLink = 'https://www.appsheet.com/start/02093cba-07ed-4b20-9145-d396f9a3af1d' + String(props.EditLink);
+            var editLink = 'https://www.appsheet.com/start/0318ac0c-250d-4f66-8de7-963caa56ca65' + String(props.EditLink);
             popupDiv.innerHTML = '<div style="display: flex;justify-content: space-between;position:sticky;top:0;background-color:' + status 
                 + ';text-align:left;padding:12px 6px 6px 12px;border-bottom:1px solid #EEE;font-weight:bold;font-size:16px;color: #000000;cursor:text;">'+ pl 
                 +`<button id="plot-popup-edit" style="font-size:12px;margin-bottom:6px;padding:4px 8px;float:right;cursor:pointer;"><a style="text-decoration:none;" href="${editLink}" target="_blank">Edit</a></button><button id="plot-popup-close" style="font-size:12px;margin-bottom:6px;padding:4px 8px;float:right;cursor:pointer;">Close</button></div>` + popupHtml;
