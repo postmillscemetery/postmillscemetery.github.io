@@ -1,1 +1,1 @@
-Data for various projects by Far Field Mapping.
+Data for cemetery web map for the Post Mills Cemetery Association.
