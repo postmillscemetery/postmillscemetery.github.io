@@ -1,5 +1,5 @@
 //window.addEventListener('json_CemeteryDirectoryReady',plotList);
-setTimeout(plotList,1000);
+setTimeout(plotList,2000);
 function plotList() {
     if (!window.json_PlotTable_6) return;
     var features = window.json_PlotTable_6.features || [];
