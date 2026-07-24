@@ -7,10 +7,10 @@ function plotInfo(){
     function buildPopupHtml(p){
         var plot = p.Plot;
         var name = ((p.FirstName||'') + ' ' + (p.LastName||'')).trim();
-        var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
-        var reserved = !name && p.Grantee;
-        var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
-        var status = interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
+        //var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
+        //var reserved = !name && p.Grantee;
+        //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
+        var status = p.Status //interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
         var notes = ((p.Notes1 || '') + ' ' + (p.Notes2 || '') + ' ' + (p.Notes3 || '') + ' ' + (p.Notes4 || '')).trim();
         var editDate = p.EditDate || '';
         //var html = '<div style="background-color: #ef4036;text-align:center;padding:6px 8px;border-bottom:1px solid #ef4036;font-weight:bold;font-size:16px;color: #ffffff">'+ fullName +'</div>';
@@ -150,10 +150,10 @@ function plotInfo(){
             var popupHtml = buildPopupHtml(props);
             var pl = props.Plot;
             var name = ((props.FirstName||'') + ' ' + (props.LastName||'')).trim();
-            var interred = (name && props.Grantee) || (name && !props.Grantee && name !=='open');
-            var reserved = !name && props.Grantee;
-            var available = (!name && !props.Grantee) || (name ==='open' && !props.Grantee);
-            var status = interred ? 'rgba(132, 172, 223,1)' : reserved ? 'rgba(176, 206, 246,1)' : available ? 'rgba(219, 232, 249,1)' : '';
+            //var interred = (name && props.Grantee) || (name && !props.Grantee && name !=='open');
+            //var reserved = !name && props.Grantee;
+            //var available = (!name && !props.Grantee) || (name ==='open' && !props.Grantee);
+            var status = props.Status == 'Interred' ? 'rgba(132, 172, 223,1)' : props.Status == 'Reserved' ? 'rgba(176, 206, 246,1)' :'rgba(219, 232, 249,1)';
             var editLink = 'https://www.appsheet.com/start/0318ac0c-250d-4f66-8de7-963caa56ca65' + String(props.EditLink);
             popupDiv.innerHTML = '<div style="display: flex;justify-content: space-between;position:sticky;top:0;background-color:' + status 
                 + ';text-align:left;padding:12px 6px 6px 12px;border-bottom:1px solid #EEE;font-weight:bold;font-size:16px;color: #000000;cursor:text;">'+ pl 
