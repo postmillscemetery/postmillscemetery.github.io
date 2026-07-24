@@ -61,10 +61,10 @@ function plotSummary () {
         var LotAttr = p.Lot ? ' data-lot="' + (p.Lot + '') + '"' : '';
         var PlotAttr = p.Plot ? ' data-plot="' + (p.Plot + '') + '"' : '';
         var name = ((p.FirstName||'') + ' ' + (p.LastName||'')).trim();
-        var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
-        var reserved = !name && p.Grantee;
-        var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
-        var status = interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
+        //var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
+        //var reserved = !name && p.Grantee;
+        //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
+        var status = p.Status // interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
         obj.arr.push({status: status, plot: p.Plot});
     });
    
@@ -118,12 +118,17 @@ function plotSummary () {
 
     html += '<p>Lots: <b>'+lotCount+
     '</b></p><p style="padding-left:0px;">Plots: <b>'+plotCount+
-    '</b></p><p style="padding-left:12px;"><button class="button button1"></button>Interred: <b>'+interredCount+
-    '</b></p><p style="padding-left:12px;"><button class="button button2"></button>Reserved: <b>'+reservedCount+
-    '</b></p><p style="padding-left:12px;"><button class="button button3"></button>Available: <b>' +availableCountTotal+
+    '</b></p><p style="padding-left:12px;"><button id="interred_btn" class="button button1"></button>Interred: <b>'+interredCount+
+    '</b></p><p style="padding-left:12px;"><button id="reserved_btn" class="button button2"></button>Reserved: <b>'+reservedCount+
+    '</b></p><p style="padding-left:12px;"><button id="available_btn" class="button button3"></button>Available: <b>' +availableCountTotal+
     '</b></p></div>';
     container.innerHTML = html;
-
+    /*
+    var interred_btn = container.querySelector('#interred_btn');
+    interred_btn.addEventListener('click', function(){
+       
+    })
+*/
       /*function addToMap() {
         if (window.map && window.L && L.Control) {
             var ctrl = L.control({ position: 'topright' });
@@ -140,5 +145,7 @@ function plotSummary () {
 
     /*if (document.readyState === 'complete' || document.readyState === 'interactive') addToMap();
     else window.addEventListener('load', addToMap);*/
-
-};
+    if (L && L.DomEvent) {
+                    if (L.DomEvent.disableClickPropagation) L.DomEvent.disableClickPropagation(container);
+                    if (L.DomEvent.disableScrollPropagation) L.DomEvent.disableScrollPropagation(container);
+    }};
