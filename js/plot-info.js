@@ -1,5 +1,5 @@
 //window.addEventListener('json_CemeteryDirectoryReady',plotInfo);
-setTimeout(plotInfo,1000);
+setTimeout(plotInfo,2000);
 function plotInfo(){
     function ready(fn){ 
         if(document.readyState==='complete'||document.readyState==='interactive') setTimeout(fn,0); 
