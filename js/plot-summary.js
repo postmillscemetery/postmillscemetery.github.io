@@ -1,4 +1,4 @@
-setTimeout(plotSummary,1000);
+setTimeout(plotSummary,2000);
 function plotSummary () {
     if (!window.json_PlotTable_6) return;
     var features = json_PlotTable_6.features || [];
