@@ -404,26 +404,28 @@
                         feature.properties.FirstName = p.properties.FirstName;
                         feature.properties.LastName = p.properties.LastName;
                         feature.properties.Grantee = p.properties.Grantee;
+                        feature.properties["Status"] = p.properties.Status
                     }
                 });
                 var name = ((feature.properties['FirstName'] || '' ) + ' ' + (feature.properties['LastName'] || '')).trim();
                 var grantee = feature.properties['Grantee'];
-                //var status = feature.properties['Status'];
-                var interred = ((name && grantee) || (name && !grantee && name !=='open'));
-                var reserved = (!name && grantee);
-                var available = ((!name && !grantee) || (name === 'open' && !grantee));
-                if (interred) { //interred
+                var status = feature.properties['Status'];
+                //var interred = ((name && grantee) || (name && !grantee && name !=='open'));
+                //var reserved = (!name && grantee);
+                //var available = ((!name && !grantee) || (name === 'open' && !grantee));
+                if (status == 'Interred') { //interred
                     return style_Plots_1_0();
-                } else if (reserved) { // reserved
+                } else if (status ==  'Reserved') { // reserved
                     return style_Plots_1_1();
-                } else if (available) { // available
+                } else { // available
                     return style_Plots_1_2();
                 }
             }
         });
         bounds_group.addLayer(layer_Plots_1);
-        map.addLayer(layer_Plots_1)
+        map.addLayer(layer_Plots_1);
         };
+
         var layer_Plots_1a = new L.geoJson(json_Plots_1, {
             attribution: '',
             interactive: true,
