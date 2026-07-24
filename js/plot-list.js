@@ -1,5 +1,5 @@
 //window.addEventListener('json_CemeteryDirectoryReady',plotList);
-setTimeout(plotList,2000);
+setTimeout(plotList,1000);
 function plotList() {
     if (!window.json_PlotTable_6) return;
     var features = window.json_PlotTable_6.features || [];
@@ -34,15 +34,15 @@ function plotList() {
     //'<th style="text-align:left;">Status</th>'+
     '<th style="text-align:left;">Deceased</th></tr></thead><tbody>';
     listItems.forEach(function(item, idx) {
-       var p = item.props;
+        var p = item.props;
         var LotAttr = p.Lot ? ' data-lot="' + (p.Lot + '') + '"' : '';
         var PlotAttr = p.Plot ? ' data-plot="' + (p.Plot + '') + '"' : '';
         var IdAttr = p.ID ? ' data-id="' + (p.ID + '') + '"' : '';
         var name = ((p.FirstName||'') + ' ' + (p.LastName||'')).trim();
-        var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
-        var reserved = !name && p.Grantee;
-        var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
-        var status = interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
+        //var interred = (name && p.Grantee) || (name && !p.Grantee && name !=='open');
+        //var reserved = !name && p.Grantee;
+        //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
+        var status = p.Status //interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
         var flagged = '';
         if (p.Flagged == 'TRUE') flagged += '<span style="color: red;font-weight:bold;"> !</span>'  //' 🔺' //'<span style="padding-left:6px;padding-top:12px;"><button class="button-flagged"></button></span>';
         html += '<tr class="'+status+'" data-idx="' + idx + '"' + LotAttr + PlotAttr + IdAttr + ' style="cursor:pointer;">' +
