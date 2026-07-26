@@ -12,7 +12,7 @@ function plotInfo(){
         //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
         var status = p.Status //interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
         var notes = ((p.Notes1 || '') + ' ' + (p.Notes2 || '') + ' ' + (p.Notes3 || '') + ' ' + (p.Notes4 || '')).trim();
-        var editDate = p.EditDate || '';
+        var editDate = new Date(p.EditDate || '');
         //var html = '<div style="background-color: #ef4036;text-align:center;padding:6px 8px;border-bottom:1px solid #ef4036;font-weight:bold;font-size:16px;color: #ffffff">'+ fullName +'</div>';
         var html = '<div class="plot-popup" style="font-family:Arial, Helvetica, sans-serif; font-size:13px;padding-left:8px;padding-right:8px;padding-bottom:8px;">'+
         '<table style="border-collapse:collapse;width:100%;cursor:text;">';
@@ -32,7 +32,7 @@ function plotInfo(){
         if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes2 || '') + '</td></tr>';
         if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes3 || '') + '</td></tr>';
         if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes4 || '') + '</td></tr>';
-        if (editDate) html += '<tr><td colspan="2" style="font-weight:normal; font-style: italic;text-align: right; border-bottom:none;">Last Edit: ' +  editDate + '</td></tr>';
+        if (editDate) html += '<tr><td colspan="2" style="font-weight:normal; font-style: italic;text-align: right; border-bottom:none;">Last Edit: ' +  editDate.toLocaleDateString('en-US') + '</td></tr>';
         html += '</tbody></table></div>';
         return html;
     }
