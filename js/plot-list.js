@@ -44,7 +44,7 @@ function plotList() {
         //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
         var status = p.Status //interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
         var flagged = '';
-        if (p.Flagged == 'TRUE') flagged += '<span style="color: red;font-weight:bold;"> !</span>'  //' 🔺' //'<span style="padding-left:6px;padding-top:12px;"><button class="button-flagged"></button></span>';
+        if (p.Flagged == true) flagged += '<span style="color: red;font-weight:bold;"> !</span>'  //' 🔺' //'<span style="padding-left:6px;padding-top:12px;"><button class="button-flagged"></button></span>';
         html += '<tr class="'+status+'" data-idx="' + idx + '"' + LotAttr + PlotAttr + IdAttr + ' style="cursor:pointer;">' +
         '<td style="padding:6px 6px;width:25%;">' + (p.Plot || '') + flagged + '</td>' +
         '<td style="padding:4px 6px;width:25%;">' + (p.Grantee || '') + '</td>'
