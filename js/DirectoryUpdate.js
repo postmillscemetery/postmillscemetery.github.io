@@ -1,6 +1,6 @@
 (function(){
   // Replace with the Web App URL copied from Step 1
-const API_URL = "https://script.google.com/macros/s/AKfycbzazfncDaJHyyxTT0ReMNPK_UEipJ3wEewBN_MNw6VhR1GPGPVj9cgJyJYLHmkSIqYKEg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwNYrcFVX8hkGais6vptMGgKfDhPPbVxfZf97LcyyGnU6DKPFN1VQUGjSdEdx_fX3BQzQ/exec";
 async function fetchSheetData() {
   try {
     const response = await fetch(API_URL);
