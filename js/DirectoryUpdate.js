@@ -69,3 +69,24 @@ async function fetchSheetData() {
 
 // Execute the function
 fetchSheetData();
+
+  /*const id = '1bk0suSSDMsWnlxiAss5xoSnFl-nfoqq-a3g6vdaVzbU';
+  const gid = '1932469646';
+  const url = `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&gid=${gid}`;
+  fetch(url).then(r => r.text()).then(text => {
+    const jsonText = text.match(/\{[\s\S]*\}/)[0];
+    const obj = JSON.parse(jsonText);
+    const cols = (obj.table.cols||[]).map(c => (c.label||c.id||'').trim().replace(/\s+/g,'_'));
+    const rows = (obj.table.rows||[]).map(r => {
+      const out = {};
+      cols.forEach((col,i)=>{
+        const cell = r.c && r.c[i];
+        out[col] = cell == '' ? '' : (cell.f != '' ? cell.f : cell.v);
+      });
+      return out;
+    });
+*/
+    
+   
+  //}).catch(console.error);
+})();
