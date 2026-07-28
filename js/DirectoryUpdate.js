@@ -11,25 +11,25 @@ async function fetchSheetData() {
     obj = {};
     obj.arr = new Array();
     data.forEach(function(item){
-        var ID = item.ID == '' ? null : item.ID;
-        var Lot = item.Lot == '' ? null : item.Lot;
-        var Plot = item.Plot == '' ? null : item.Plot;
-        var FirstName = item.FirstName == '' ? null : item.FirstName;
-        var LastName = item.LastName == '' ? null : item.LastName;
-        var BurialDate = item.BurialDate == '' ? null : item.BurialDate;
-        var BurialNote = item.BurialNote == '' ? null : item.BurialNote;
-        var Book = item.Book == '' ? null : item.Book; 
-        var Page = item.Page == '' ? null : item.Page;
-        var RecordingDate = item.RecordingDate == '' ? null : item.RecordingDate;
-        var Grantee = item.Grantee == '' ? null : item.Grantee;
-        var Notes1 = item.Notes1 == '' ? null : item.Notes1;
-        var Notes2 = item.Notes2 == '' ? null : item.Notes2;
-        var Notes3 = item.Notes3 == '' ? null : item.Notes3;
-        var Notes4 = item.Notes4 == '' ? null : item.Notes4;
-        var EditDate = item.EditDate == '' ? null : item.EditDate;
-        var Status = item.Status == '' ? null : item.Status;
-        var EditLink = item.EditLink == '' ? null : item.EditLink;
-        var Flagged = item.Flagged == '' ? null : item.Flagged;
+        var ID = item.ID == '' ? '' : item.ID;
+        var Lot = item.Lot == '' ? '' : item.Lot;
+        var Plot = item.Plot == '' ? '' : item.Plot;
+        var FirstName = item.FirstName == '' ? '' : item.FirstName;
+        var LastName = item.LastName == '' ? '' : item.LastName;
+        var BurialDate = item.BurialDate == '' ? '' : item.BurialDate;
+        var BurialNote = item.BurialNote == '' ? '' : item.BurialNote;
+        var Book = item.Book == '' ? '' : item.Book; 
+        var Page = item.Page == '' ? '' : item.Page;
+        var RecordingDate = item.RecordingDate == '' ? '' : item.RecordingDate;
+        var Grantee = item.Grantee == '' ? '' : item.Grantee;
+        var Notes1 = item.Notes1 == '' ? '' : item.Notes1;
+        var Notes2 = item.Notes2 == '' ? '' : item.Notes2;
+        var Notes3 = item.Notes3 == '' ? '' : item.Notes3;
+        var Notes4 = item.Notes4 == '' ? '' : item.Notes4;
+        var EditDate = item.EditDate == '' ? '' : item.EditDate;
+        var Status = item.Status == '' ? '' : item.Status;
+        var EditLink = item.EditLink == '' ? '' : item.EditLink;
+        var Flagged = item.Flagged == '' ? '' : item.Flagged;
 
         obj.arr.push({"type": "Feature", "properties": {
         ID: ID,
@@ -69,4 +69,3 @@ async function fetchSheetData() {
 
 // Execute the function
 fetchSheetData();
-})();
