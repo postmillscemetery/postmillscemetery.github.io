@@ -255,6 +255,12 @@
             padding:6px 8px;
             border-bottom:1px solid #eee;
         }
+
+        .edit-plot label {
+             font-weight: bold; 
+        }
+
+
         #myInput {
             background-image: url('/css/searchicon.png');
             background-position: 10px 10px;
@@ -301,3 +307,16 @@
         .button1 {background-color:rgba(15, 95, 197,.5);} 
         .button2 {background-color: rgba(103, 164, 244,.5);} 
         .button3 {background-color: rgba(189, 215, 250,.5);} 
+        
+        .button-flagged {
+            border: .5px solid rgba(35,35,35,1.0);
+            padding-top: 12px;
+            padding-left: 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: text;
+            background-color: red;
+        }
