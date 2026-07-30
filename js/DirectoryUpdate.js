@@ -22,10 +22,7 @@ async function fetchSheetData() {
         var Page = item.Page == '' ? '' : item.Page;
         var RecordingDate = item.RecordingDate == '' ? '' : item.RecordingDate;
         var Grantee = item.Grantee == '' ? '' : item.Grantee;
-        var Notes1 = item.Notes1 == '' ? '' : item.Notes1;
-        var Notes2 = item.Notes2 == '' ? '' : item.Notes2;
-        var Notes3 = item.Notes3 == '' ? '' : item.Notes3;
-        var Notes4 = item.Notes4 == '' ? '' : item.Notes4;
+        var Notes = item.Notes == ''? '' : item.Notes
         var EditDate = item.EditDate == '' ? '' : item.EditDate;
         var Status = item.Status == '' ? '' : item.Status;
         var EditLink = item.EditLink == '' ? '' : item.EditLink;
@@ -43,10 +40,7 @@ async function fetchSheetData() {
         Page: Page,
         RecordingDate: RecordingDate,
         Grantee: Grantee,
-        Notes1: Notes1,
-        Notes2: Notes2,
-        Notes3: Notes3,
-        Notes4: Notes4,
+        Notes: Notes,
         EditDate: EditDate,
         Status: Status,
         EditLink: EditLink,
