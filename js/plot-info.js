@@ -1,5 +1,5 @@
 //window.addEventListener('json_CemeteryDirectoryReady',plotInfo);
-setTimeout(plotInfo,10000);
+setTimeout(plotInfo,8000);
 function plotInfo(){
     function ready(fn){ 
         if(document.readyState==='complete'||document.readyState==='interactive') setTimeout(fn,0); 
@@ -11,7 +11,7 @@ function plotInfo(){
         //var reserved = !name && p.Grantee;
         //var available = (!name && !p.Grantee) || (name ==='open' && !p.Grantee);
         var status = p.Status //interred ? 'Interred' : reserved ? 'Reserved' : available ? 'Available' : '';
-        var notes = ((p.Notes1 || '') + ' ' + (p.Notes2 || '') + ' ' + (p.Notes3 || '') + ' ' + (p.Notes4 || '')).trim();
+        var notes = p.Notes//((p.Notes1 || '') + ' ' + (p.Notes2 || '') + ' ' + (p.Notes3 || '') + ' ' + (p.Notes4 || '')).trim();
         var editDate = new Date(p.EditDate || '');
         //var html = '<div style="background-color: #ef4036;text-align:center;padding:6px 8px;border-bottom:1px solid #ef4036;font-weight:bold;font-size:16px;color: #ffffff">'+ fullName +'</div>';
         var html = '<div class="plot-popup" style="font-family:Arial, Helvetica, sans-serif; font-size:13px;padding-left:8px;padding-right:8px;padding-bottom:8px;">'+
@@ -28,10 +28,7 @@ function plotInfo(){
         if (status !== 'Available') html += '<tr><td>Page</td><td>' + (p.Page || '') + '</td></tr>';
         if (status !== 'Available') html += '<tr><td>Recording Date</td><td>' + (p.RecordingDate || '') + '</td></tr>';
         if (notes) html += '<tr><td colspan="2" style="text-align:center;font-size:larger;border-bottom:none;">Notes</td>'
-        if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes1 || '') + '</td></tr>';
-        if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes2 || '') + '</td></tr>';
-        if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes3 || '') + '</td></tr>';
-        if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (p.Notes4 || '') + '</td></tr>';
+        if (notes) html += '<tr><td colspan="2" style="font-weight:normal;border-bottom:none;">' + (notes || '') + '</td></tr>';
         if (editDate != 'Invalid Date') html += '<tr><td colspan="2" style="font-weight:normal; font-style: italic;text-align: right; border-bottom:none;">Last Edit: ' +  editDate.toLocaleDateString('en-US') + '</td></tr>';
         html += '</tbody></table></div>';
         return html;
@@ -67,10 +64,7 @@ function plotInfo(){
                 '<label for="lastname">Last Name:</label><input type="text" id="lastname" name="LastName" value="'+p.LastName+'" >'+
                 '<label for="burialdate">Burial Date:</label><input type="text" id="burialdate" name="BurialDate" value="'+p.BurialDate+'" >'+
                 '<label for="burialnote">Burial Note:</label><input type="text" id="burialnote" name="BurialNote" value="'+p.BurialNote+'" >'+
-                '<label for="notes1">Notes1:</label><input type="text" id="notes1" name="Notes1" value="'+p.Notes1+'">'+
-                '<label for="notes2">Notes2:</label><input type="text" id="notes2" name="Notes2" value="'+p.Notes2+'">'+
-                '<label for="notes3">Notes3:</label><input type="text" id="notes3" name="Notes3" value="'+p.Notes3+'">'+
-                '<label for="notes4">Notes4:</label><input type="text" id="notes4" name="Notes4" value="'+p.Notes4+'">'+
+                '<label for="notes">Notes:</label><textarea id="notes" name="Notes" rows="5" cols="30">'+p.Notes+'</textarea>'+
                 '<input type="hidden" id="editdate" name="EditDate" value="'+nowDate.toLocaleDateString('en-US')+'">'+
 
                 '<button type="submit" style="padding: 8px; cursor: pointer; background: #0f5fc5; color: white; border: none;">Save</button></form></div></body>'
