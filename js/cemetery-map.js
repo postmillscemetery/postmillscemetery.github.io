@@ -387,7 +387,7 @@
         map.getPane('pane_Plots_1').style.zIndex = 401;
         map.getPane('pane_Plots_1').style['mix-blend-mode'] = 'normal';
         //window.addEventListener('json_CemeteryDirectoryReady',plotLayer());
-        setTimeout(plotLayer,10000);
+        setTimeout(plotLayer,8000);
         function plotLayer(){
         var layer_Plots_1 = new L.geoJson(json_Plots_1, {
             attribution: '',
